@@ -45,10 +45,10 @@ adoptopenjdk_repo_el_desired_state: present
 
 Variable                                   | Value (default)                                                                           | Description
 ------------------------------------------ | ----------------------------------------------------------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-adoptopenjdk_pre_reqs_debian               | apt-transport-https, wget, gnupg                                                          | Package required by AdoptOpenJdk on Debain based systems.
-adoptopenjdk_pre_reqs_debian_desired_state | present                                                                                   | State of the adoptopenjdk_pre_reqs_debian_desired_state packages. Whether to install, verify if available or to uninstall (i.e. ansible apt module values: `present`, `latest`, or `absent`)
 adoptopenjdk_app_name                      | adoptopenjdk-11-hotspot                                                                   | Name of AdoptOpenJdk package to install by default i.e. `adoptopenjdk-11-hotspot` . You may use other packages such as `adoptopenjdk-8-openj9`, `adoptopenjdk-15-hotspot` etc.. as well.
 adoptopenjdk_desired_state                 | present                                                                                   | State of the adoptopenjdk_app_name package (i.e. `adoptopenjdk-11-hotspot` package itself.). Whether to install, verify if available or to uninstall (i.e. ansible apt module values: `present`, `latest`, or `absent`)
+adoptopenjdk_pre_reqs_debian               | apt-transport-https, wget, gnupg                                                          | Package required by AdoptOpenJdk on Debain based systems.
+adoptopenjdk_pre_reqs_debian_desired_state | present                                                                                   | State of the adoptopenjdk_pre_reqs_debian_desired_state packages. Whether to install, verify if available or to uninstall (i.e. ansible apt module values: `present`, `latest`, or `absent`)
 adoptopenjdk_repo_debian_gpg_key           | <https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public>                           | AdoptOpenJdk GPG required on Debian based systems.
 adoptopenjdk_repo_debian                   | "deb <https://adoptopenjdk.jfrog.io/adoptopenjdk/deb> {{ ansible_lsb['codename'] }} main" | Repository URL for Debian based systems.
 adoptopenjdk_repo_debian_filename          | "{{ adoptopenjdk_app_name }}"                                                             | Name of the repository file that will be stored at `/etc/apt/sources.list.d/` on Debian based systems. Defaults to the variable value for "{{ adoptopenjdk_app_name }}" which is `adoptopenjdk-11-hotspot` by default.
@@ -76,17 +76,17 @@ For default behaviour of role (i.e. installation of **adoptopenjdk-11-hotspot** 
     - darkwizard242.adoptopenjdk
 ```
 
-For customizing behavior of role (i.e. installation of latest **adoptopenjdk-11-hotspot** package) in ansible playbooks.
+For customizing behavior of role (for e.g. installation of j9 jvm instead of hotspot, **adoptopenjdk-15-openj9** package) in ansible playbooks.
 
 ```yaml
 - hosts: servers
   roles:
     - darkwizard242.adoptopenjdk
   vars:
-    adoptopenjdk_desired_state: latest
+    adoptopenjdk_app_name: adoptopenjdk-15-openj9
 ```
 
-For customizing behavior of role (i.e. un-installation of **adoptopenjdk-11-hotspot** package) in ansible playbooks.
+For customizing behavior of role (for e.g. un-installation of **adoptopenjdk-11-hotspot** package) in ansible playbooks.
 
 ```yaml
 - hosts: servers
