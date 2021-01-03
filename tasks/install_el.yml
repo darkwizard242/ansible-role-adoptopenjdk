@@ -1,0 +1,19 @@
+---
+# tasks file for adoptopenjdk | EL Family
+
+- name: EL Family | Adding repository {{ adoptopenjdk_repo_el }}
+  yum_repository:
+    name: "{{ adoptopenjdk_repo_el_name }}"
+    description: "{{ adoptopenjdk_repo_el_description }}"
+    baseurl: "{{ adoptopenjdk_repo_el }}"
+    gpgcheck: "{{ adoptopenjdk_repo_el_gpgcheck }}"
+    gpgkey: "{{ adoptopenjdk_repo_el_gpg_key }}"
+    enabled: "{{ adoptopenjdk_repo_el_enabled }}"
+    file: "{{ adoptopenjdk_repo_el_filename }}"
+    state: "{{ adoptopenjdk_repo_el_desired_state }}"
+
+- name: EL Family | Installing {{ adoptopenjdk_app_name }}
+  yum:
+    name: "{{ adoptopenjdk_app_name }}"
+    state: "{{ adoptopenjdk_desired_state }}"
+    update_cache: yes

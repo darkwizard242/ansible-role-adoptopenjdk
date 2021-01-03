@@ -1,0 +1,31 @@
+---
+galaxy_info:
+  role_name: adoptopenjdk
+  author: Ali Muhammad
+  description: AdoptOpenJDK installation on Debian-based and EL-based systems.
+  company: none
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
+    - name: Debian
+      versions:
+        - buster
+        - stretch
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - adoptopenjdk
+    - os
+    - system
+    - java
+    - jvm
+
+dependencies: []
