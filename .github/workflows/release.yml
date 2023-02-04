@@ -10,7 +10,7 @@ jobs:
   release:
 
     name: Release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
 
@@ -20,7 +20,7 @@ jobs:
         path: 'darkwizard242.adoptopenjdk'
 
     - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: 3.8
 
