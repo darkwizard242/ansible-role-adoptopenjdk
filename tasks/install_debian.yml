@@ -2,25 +2,25 @@
 # tasks file for adoptopenjdk | Debian/Ubuntu Family
 
 - name: Debian/Ubuntu Family | Install python3-apt
-  apt:
+  ansible.builtin.apt:
     name: python3-apt
     state: present
     force_apt_get: yes
     update_cache: yes
 
 - name: Debian/Ubuntu Family | Installing {{ adoptopenjdk_pre_reqs_debian }} for {{ adoptopenjdk_app_name }}
-  apt:
+  ansible.builtin.apt:
     name: "{{ adoptopenjdk_pre_reqs_debian }}"
     state: "{{ adoptopenjdk_pre_reqs_debian_desired_state }}"
     force_apt_get: yes
 
 - name: Debian/Ubuntu Family | Add gpg signing key for {{ adoptopenjdk_app_name }}
-  apt_key:
+  ansible.builtin.apt_key:
     url: "{{ adoptopenjdk_repo_debian_gpg_key }}"
     state: present
 
 - name: Debian/Ubuntu Family | Adding repository {{ adoptopenjdk_repo_debian }}
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ adoptopenjdk_repo_debian }}"
     codename: "{{ ansible_lsb['codename'] }}"
     filename: "{{ adoptopenjdk_repo_debian_filename }}"
@@ -28,7 +28,7 @@
     update_cache: yes
 
 - name: Debian/Ubuntu Family | Installing {{ adoptopenjdk_app_name }}
-  apt:
+  ansible.builtin.apt:
     name: "{{ adoptopenjdk_app_name }}"
     state: "{{ adoptopenjdk_desired_state }}"
     force_apt_get: yes

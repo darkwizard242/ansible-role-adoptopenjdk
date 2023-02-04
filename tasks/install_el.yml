@@ -2,7 +2,7 @@
 # tasks file for adoptopenjdk | EL Family
 
 - name: EL Family | Adding repository {{ adoptopenjdk_repo_el }}
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: "{{ adoptopenjdk_repo_el_name }}"
     description: "{{ adoptopenjdk_repo_el_description }}"
     baseurl: "{{ adoptopenjdk_repo_el }}"
@@ -13,7 +13,7 @@
     state: "{{ adoptopenjdk_repo_el_desired_state }}"
 
 - name: EL Family | Installing {{ adoptopenjdk_app_name }}
-  yum:
+  ansible.builtin.yum:
     name: "{{ adoptopenjdk_app_name }}"
     state: "{{ adoptopenjdk_desired_state }}"
     update_cache: yes

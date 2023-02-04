@@ -26,7 +26,7 @@ jobs:
     steps:
 
     - name: Checkout source code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         path: 'darkwizard242.adoptopenjdk'
         fetch-depth: 0
@@ -49,7 +49,7 @@ jobs:
     strategy:
       max-parallel: 10
       matrix:
-        IMAGE: [ubuntu-22.04, ubuntu-20.04, ubuntu-18.04, rockylinux-8, centos-7, debian-bullseye, debian-buster, debian-stretch]
+        IMAGE: [ubuntu-20.04, ubuntu-18.04, rockylinux-8, centos-7, debian-bullseye, debian-buster, debian-stretch]
 
     steps:
 
@@ -59,7 +59,7 @@ jobs:
         path: 'darkwizard242.adoptopenjdk'
 
     - name: Set up Python 3.10.0
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: 3.10.0
 
