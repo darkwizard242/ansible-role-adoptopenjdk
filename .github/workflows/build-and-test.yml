@@ -71,7 +71,7 @@ jobs:
 
 
     - name: Execute yamllint
-      run: yaml lint .
+      run: yamllint .
 
     - name: Execute Molecule test of role for ${{ matrix.IMAGE }}
       working-directory: 'darkwizard242.adoptopenjdk'
