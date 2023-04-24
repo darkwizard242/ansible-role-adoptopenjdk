@@ -67,7 +67,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install python3-setuptools -y
-        pip3 install -U pip wheel ansible molecule molecule-plugins[docker] docker ansible-lint flake8 pytest-testinfra
+        pip3 install -U pip wheel ansible molecule molecule-plugins[docker] docker ansible-lint yamllint flake8 pytest-testinfra
 
 
     - name: Execute yamllint
