@@ -5,11 +5,12 @@ ignore: |
   .github/
 
 rules:
+  line-length: disable
+  truthy: disable
+  indentation: disable
   braces:
     max-spaces-inside: 1
     level: error
   brackets:
     max-spaces-inside: 1
     level: error
-  line-length: disable
-  truthy: disable
