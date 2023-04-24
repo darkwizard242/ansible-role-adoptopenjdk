@@ -63,6 +63,9 @@ jobs:
       with:
         python-version: '3.10'
 
+    - name: Execute yamllint
+      run: yaml lint .
+
     - name: Update repo cache, install python3-setuptools and required pip modules
       run: |
         sudo apt-get update
