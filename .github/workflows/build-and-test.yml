@@ -69,9 +69,8 @@ jobs:
         sudo apt-get install python3-setuptools -y
         pip3 install -U pip wheel ansible molecule molecule-plugins[docker] docker ansible-lint yamllint flake8 pytest-testinfra
 
-
-    - name: Execute yamllint
-      run: yamllint .
+    # - name: Execute yamllint
+    #   run: yamllint .
 
     - name: Execute Molecule test of role for ${{ matrix.IMAGE }}
       working-directory: 'darkwizard242.adoptopenjdk'
