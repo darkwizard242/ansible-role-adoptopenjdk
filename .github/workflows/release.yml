@@ -5,6 +5,9 @@ on:
     tags:
       - '*'
 
+env:
+  CUSTOM_DIR: 'darkwizard242.adoptopenjdk'
+
 jobs:
 
   release:
@@ -17,7 +20,7 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v1
       with:
-        path: 'darkwizard242.adoptopenjdk'
+        path: '${{ env.CUSTOM_DIR }}'
 
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
