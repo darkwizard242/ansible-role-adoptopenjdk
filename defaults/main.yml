@@ -12,6 +12,7 @@ adoptopenjdk_pre_reqs_debian:
   - gnupg
 adoptopenjdk_pre_reqs_debian_desired_state: present
 adoptopenjdk_repo_debian_gpg_key: https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
+adoptopenjdk_repo_debian_gpg_keyring_file: /etc/apt/trusted.gpg
 adoptopenjdk_repo_debian: "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb {{ ansible_lsb['codename'] }} main"
 adoptopenjdk_repo_debian_filename: "{{ adoptopenjdk_app_name }}"
 adoptopenjdk_repo_debian_desired_state: present
